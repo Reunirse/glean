@@ -65,3 +65,48 @@ alphanumeric identifier :  x1     _out_     MAX_DECIMAL_NUMBER    CamelCase
 The implicit modifier in front of the method tells the compiler to apply it automatically in a number of situations.
 >implicit def intToRational(x: Int) = new Rational(x)
 2 * new Rational(3,4) // 2 is implictly made  to Rational
+
+
+
+For expression :
+advantage of curly braces in this case is that they allow you to leave off the semi-colons at the end of the clauses, which the parentheses require.
+
+- function literals are in Scala API for common looping patterns
+```args.findIndexOf(
+    arg => !arg.startsWith("-") && arg.endsWith(".scala")
+)```
+
+Methods: members of object
+
+- First class functions: At runtime, first-class functions are represented by objects called func- tion values. Like other values, function values can be passed as parameters to other functions, returned as results, or assigned to variables. In the source code, you can express first-class functions in a shorthand form called func- tion literals.
+A function literal is compiled into a class that when instantiated at run- time is a function value.1 Thus the distinction between function literals and values is that function literals exist in the source code, whereas function val- ues exist as objects at runtime. 
+kind of function that’s represented at runtime by an object kind of function that’s represented at runtime by an object
+eg : 
+  scala> var increase = (x: Int) => x + 1
+  increase: (Int) => Int = <function>
+  scala> increase(10) ---> object 
+  res0: Int = 11
+
+   someNumbers.foreach((x: Int) => println(x)) ------>(x: Int) => println(x) fun literal
+
+   placeholder syntax: using "_" underscore
+   anyList.filter(_ > 0)
+
+  scala> val f = (_: Int) + (_: Int)
+  The first underscore represents the first parameter, the second underscore the second parameter, the third underscore the third parameter, and so on.
+
+  Partially applied funs:
+  you can also replace an entire parameter list with an underscore.
+  
+               someNumbers.foreach(println _)
+
+def sumz(az: Int, bz: Int, cz: Int) = az + bz + cz
+//sum(1, 2, 3)
+val ax = sumz _
+ax(1, 2, 3)
+scala> val b = sum(1, _: Int, 3)
+  b: (Int) => Int = <function>
+
+  b(2) ==>6
+
+  someNumbers.foreach(println _) ---->someNumbers.foreach(println)  [function was expected hence ok tp leave _]

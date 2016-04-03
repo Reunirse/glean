@@ -42,3 +42,55 @@ One difference between classes and singleton objects is that singleton objects c
 Because you can’t instantiate a singleton object with the new keyword, you have no way to pass parameters to it.
 
 Scala convention is to use camel case for constants, such as XOffset
+
+
+#### 7
+
+
+
+Using val is the functional style, and it helps the same way as a final variable in Java
+It tells readers of the code that the variable will never change, saving them from scanning all code in the variable’s scope to see if it ever changes.
+
+Look for opportunities to use vals. It makes the code both easier to read and easier to refactor.
+
+An exception throw has type Nothing
+
+Java will not allow to create a variable in an inner scope that has the same name as a variable in an outer scope. 
+In a Scala program, an inner variable is said to shadow a like-named outer variable, because the outer variable becomes invisible in the inner scope.
+
+
+#### 9-11
+
+
+
+Higher-order functions take functions as parameters give an extra opportunity to condense and simplify code.
+One benefit of higher-order functions is they enable us to create control abstractions that allow us to reduce code duplication.
+
+A curried function is one that applied to multiple argument lists, instead of just one.
+
+A class with abstract members must itself be declared abstract, which is done by writing an abstract modifier in front of the class keyword.
+A method is abstract if it does not have an implementation(i.e., no equals sign or body). Unlike Java, no abstract modifier is necessary (or allowed) 
+on method declarations. Methods that do have animplementation are called concrete.
+
+Client code should not be affected by a decision to implement an attribute as a field or method. For instance, we could have chosen to implement 
+parameterless methods as fields instead of methods, simply by changing the def in each definition to a val
+
+In principle it’s possible to leave out all empty parentheses in Scala function calls. However, it is recommended to still write the empty parentheses
+when the invoked method represents more than a property of its receiver object. For instance, empty parentheses are appropriate if the method performs
+I/O, or writes reassignable variables (vars), or reads vars other than the receiver’s fields, either directly or indirectly by using mutable objects. That
+way, the parameter list acts as a visual clue that some interesting computation is triggered by the call
+
+It is encouraged style in Scala to define methods that take no parameters and have no side effects as parameterless methods, i.e., leaving off the empty parentheses. 
+On the other hand, you should never define a method that has side-effects without parentheses, because then invocations of that method would look like a field selection.
+
+Inheritance means that all members of the superclass are also members of the subclass, with two exceptions. First, private members of the super-
+class are not inherited in a subclass. Second, a member of a superclass is not inherited if a member with the same name and parameters is already implemented in the subclass.
+
+A factory object contains methods that construct other objects. Clients would then use these factory methods for object construction rather than constructing the objects directly with new.
+
+In Scala, every class inherits from a common superclass named Any. Because every class is a subclass of Any, the methods defined in Any are “universal” methods: they may be invoked on any object.
+
+The root class Any has two subclasses: AnyVal and AnyRef. AnyVal is the parent class of every built-in value class in Scala. 
+There are nine such value classes: Byte, Short, Char, Int, Long, Float, Double, Boolean, and Unit.
+AnyRef is the base class of all reference classes in Scala.
+

@@ -1,5 +1,5 @@
 SCALA : A SCALABLE LANGUAGE
------
+---
 
 *	Scala  stands for scalable language.
 * It is a blende of object oriented and functional programming concepts.
@@ -8,12 +8,12 @@ SCALA : A SCALABLE LANGUAGE
 *	Other languages might have object and function as two different concepts but in scala a function value is an object. Function types are classes that can be inherited by subclasses.
 *	Scala is object oriented language in pure form , every value is an object and every operation is a method call.
 
-###### Scala Traits - Overview
+##### Scala Traits - Overview
 
 * Scala traits are like interfaces in java,but they also have method implementations and even fields. Object are constructed by mixing compositions , which takes members of class and adds members of number of traits to them.
 * Unlike a class , a triat can add more functionality to an unspecified super class.
 
-###### Ideas of functional programming
+##### Ideas of functional programming
 * Functions are first class values.
 * Operation of a program should map input values to output values.
 Eg: consider implementation of string in Ruby. A string is an array of characters. Characters of string can be changed individually. You can change the semicolon characters in string to period inside same string object. But in Java and scala Replacing a character in a string such as s.replace(‘;’,’.’) yield a new string object.
@@ -48,7 +48,7 @@ Class Myclass(index: Int, name :string)
 
 ###### Scala is High Level
 
-Reduces code complexity.
+* Reduces code complexity.
 
 //JAVA
 
@@ -101,7 +101,7 @@ Type annotation must follow every function parameters proceeded by a colon. Scal
 The equal sign that precedes the body of the function hint that function defines an expression that result in a value.
 
 ###### Writing Scala scripts
-Command line arguments are available to Scala Script via scala array named args. In scala arrays are zero based, you can access an element by specifying index in parenthesis.
+* Command line arguments are available to Scala Script via scala array named args. In scala arrays are zero based, you can access an element by specifying index in parenthesis.
 ```
 println(“Hello , “+args(0))
 $scala helloarg.scala planet
@@ -118,21 +118,21 @@ print(args(i))
 i+=1;
 }
 ```
-This can be written as ```args.foreach(arg => println(arg))```
+* This can be written as ```args.foreach(arg => println(arg))```
 
-Here we call a foreach method on args and pass in a function.In this you are passing a function literal that takes one parameter named arg. The body of function is println(arg).
+* Here we call a foreach method on args and pass in a function.In this you are passing a function literal that takes one parameter named arg. The body of function is println(arg).
 
-Scala infers the type of arg to be string. Since string is the element type of array on which you are calling foreach.
+* Scala infers the type of arg to be string. Since string is the element type of array on which you are calling foreach.
 
-If we need , we can also specify type name
+* If we need , we can also specify type name
 
-```args.foreach((arg: String) => println(arg))```
+   ```args.foreach((arg: String) => println(arg))```
 
-If the function literal consists of only one statement that takes a single argument, you  need not explicitly specify name and specify the argument. The following code also works.
+* If the function literal consists of only one statement that takes a single argument, you  need not explicitly specify name and specify the argument. The following code also works.
 
-``` args.foreach(println) ```
+   ``` args.foreach(println) ```
 
-For LOOP
+###### For LOOP
 ```
 for(arg <- args)
 println(args)
@@ -175,7 +175,8 @@ Scala provides a more concise way to create and initialize arrays
 
 ``` val numNames = Array(“zero”,”one”,”two”)```
 
-###### LISTS IN SCALA
+###### LISTS IN SCALA                                                   
+
 Scala Array is a mutable sequence of objects that all share the same type .An Array[Strings] contains only strings. Although you can’t change the length of array after it was instantiated, you can change its element values. Thus arrays are mutable objects.
 
 For immutable sequence of objects that share the same type, you can use Scala List class.
@@ -241,7 +242,7 @@ Creates a new List[String] with three values “Will”, “fill” and “until
 
 *	thrill.tail :- Returns the thrill list minus its first element.
 
-###### Tuples
+##### Tuples
 Tuples are immutable , ut unlike list tuples a=can contain different types of elements. Used to return multiple objects from a method.
 ```
 val pair = (99, “Luftballons”)
@@ -252,7 +253,7 @@ Scala infers the type of this tuple to be Tuple2[Int, String].
 
 We cant access elements of tuple as pair(0) .The reason is that a lists apply method always return same type , but each element of tuple  may be  a different type. _1 has one result type, _2 has another result type.
 
-######  Use sets and maps
+#####  Use sets and maps
 
 *Scala provides mutable and immutable alternatives for sets and maps. But use the same name for both versions. Scala API contains a base trait. Scala then provides two subtraits, one for mutable sets and another for immutable sets.*
 
@@ -279,7 +280,7 @@ val romanNumeral = Map(1 -> “I” , 2 - > “II”, 3 -> “III”, 4 -> “IV
 If a code contain any vars, It is probably in imperative style.
 If code contains only vals – It is probably in functional style
 
-Imperative Style
+###### Imperative Style
 ```
 def printArgs(args : Array[String]): Unit = {
 var i =0
@@ -299,12 +300,13 @@ The above function has side effects. If a function returns Unit only way it can 
 def formatArgs(args : Array[String]) = args.mkString(“\n”)
 println(formatArgs(args))
 ```
- will print the output
+ will print the output.
+
 Scala’s assert method checks the passed boolean and if its false throws assertion error. Else it just returns quietly.
 
 Scala is a hybrid imperative and functional language.
 
-READ LINES FROM A FILE
+###### READ LINES FROM A FILE
 ```
 import scala.io.Source
 If(args.length > 0) {
@@ -324,16 +326,16 @@ The getLines method provides an Iterator[String]. Which provides one line on eac
 
 
 
-###### CLASSES AND OBJECTS
+##### CLASSES AND OBJECTS
 
-A class is a blue print of objects. Once you create a class, you can create objects from the class with the keyword new.
+* A class is a blue print of objects. Once you create a class, you can create objects from the class with the keyword new.
 ```
 Class ChecksumAccumulator {
 } ```
  Object can be created with :-
 ```new ChecksumAccumulator ```
 
-Inside a class definition , you place fields and methods, which are called members. When you instantiate a class, the runtime sets aside some memory to hold the image of the objects statei.e content of variables. Fields are also known as instance variables, because every instance gets its own set of variables.
+* Inside a class definition , you place fields and methods, which are called members. When you instantiate a class, the runtime sets aside some memory to hold the image of the objects statei.e content of variables. Fields are also known as instance variables, because every instance gets its own set of variables.
 ```
 Class CheckSumAccumulator {
 var sum =0
@@ -341,9 +343,9 @@ var sum =0
 val acc = new ChecksumAccumulator
 val csa = new ChecksumAccumulator ```
 
-it is possible to mutate the object acc referred to, even though acc is val.  What you can’t do with acc , given that they are vals, not vars is reassign a different object to them. acc will always refer to the same Checksumaccumulator object,with which you initialize it, but the fields contained inside object might change over time.
+* It is possible to mutate the object acc referred to, even though acc is val.  What you can’t do with acc , given that they are vals, not vars is reassign a different object to them. acc will always refer to the same Checksumaccumulator object,with which you initialize it, but the fields contained inside object might change over time.
 
-Private fields can only be accessed by methods defined in same class.
+* Private fields can only be accessed by methods defined in same class.
 ```
 Class ChecksumAccumulator {
 private var sum =0
@@ -351,7 +353,7 @@ private var sum =0
 val acc = new ChecksumAccumulator
 acc.sum =5 // won’t compile ```
 
-Now that sum  is private, the only code that can access sum is code defined inside the body of class itself. Thus ChecksumAccumulator won’t be of much use unless we define some methods in it.
+* Now that sum  is private, the only code that can access sum is code defined inside the body of class itself. Thus ChecksumAccumulator won’t be of much use unless we define some methods in it.
 ```
 Class ChecksumAccumulator {
 private var sum =0
@@ -386,16 +388,17 @@ Eg:- def h() = { “the string gets returned ” }
 res0: java.lang.String = the string gets returned
 ```
 
-###### Singleton Objects
-Classes in Scala cannot have static members. Instead Scala has singleton objects. A singleton object definition look like class definition, except instead of keyword class you use the keyword object.
+##### Singleton Objects
 
-When the singleton object shares the same name as that of the class, it is called class companion object. You must define both class and companion object in same source file. The class is called a companion class of the singleton object. A class and its companion object can access each other’s private members.
+* Classes in Scala cannot have static members. Instead Scala has singleton objects. A singleton object definition look like class definition, except instead of keyword class you use the keyword object.
 
-One difference between singleton objects and classes is that singleton objects cannot take parameters, whereas classes can. You can’t instantiate a singleton object with a new keyword.
+* When the singleton object shares the same name as that of the class, it is called class companion object. You must define both class and companion object in same source file. The class is called a companion class of the singleton object. A class and its companion object can access each other’s private members.
 
-You have no way to pass parameters to it. Each singleton object is implemented as an instance of of a synthetic class referenced from a static variable.. Singleton object is initialized the first time some code accesses it.
+* One difference between singleton objects and classes is that singleton objects cannot take parameters, whereas classes can. You can’t instantiate a singleton object with a new keyword.
 
-A singleton object that does not share the same name with companion class is standalone object.
+* You have no way to pass parameters to it. Each singleton object is implemented as an instance of of a synthetic class referenced from a static variable.. Singleton object is initialized the first time some code accesses it.
+
+* A singleton object that does not share the same name with companion class is standalone object.
 
 ###### THE APPLICATION TRAIT
 
@@ -421,7 +424,7 @@ Inherit from application only when our program is simple and multithreaded.
 
 
 ##### Control Structures in Scala
-The control structures available are :- If ,for, while, try match and function calls . All of Scala control structures result in some value.
+* The control structures available are :- If ,for, while, try match and function calls . All of Scala control structures result in some value.
 If Expression
 Imperative style
 var filename = “default.txt”
@@ -432,52 +435,78 @@ Scala If expression can return a value.
 val filename =
 If(!args.IsEmpty) args(0) else “default.txt”
 
-One advantage of val instead of var is that , it supports equational reasoning. The introduced variable is equal to the expression that computes it, assuming it has no side effects.
-If without an else provides the type of result as Unit. It turns out that value exist whose type is Unit.
+* One advantage of val instead of var is that , it supports equational reasoning. The introduced variable is equal to the expression that computes it, assuming it has no side effects.
+
+* If without an else provides the type of result as Unit. It turns out that value exist whose type is Unit.
 scala> val a =  if (false) “hi”
  Any type can be implicitily converted to Unit.
 scala>val c: Unit =”hi”
 
-While & do-While loop
-Both while and do-while loop result in Unit value.
-For Expressions
-Iteration through collections.
+###### While & do-While loop
+* Both while and do-while loop result in Unit value.
+
+###### For Expressions- Iteration through collections.
+
 Code that prints all files in the current directory
-val filesHere = (new java.io.File(“.”)).listFiles
-for (file <- filesHere)
-println(file)
-Filtering
+
+```
+    val filesHere = (new java.io.File(“.”)).listFiles
+    for (file <- filesHere)
+    println(file)
+```
+
+###### Filtering
+
 Sometimes we can use for to filter the entire set down to a subset.
+```
 for(file <- filesHere; if file.getName.endsWith(“.scala”)) println(file)
+```
 ---------------------------------------------------------------------------------------------
+```
 for(
 file <- filesHere;
 if file.isFile;
 if file.getName.endsWith(“.scala”)
 ) println(file)
+```
 ---------------------------------------------------------------------------------------------
+```
 for {
 file <- filesHere
 if file.isFile
 if file.getName.endsWith(“.scala”)
 } println(file)
-Inside Curly braces it is not necessary to put semicolons at the end of line.
-Producing a new Collection
-We can generate a value to remember for each iteration .You simply prefix the body of for expression with keyword yield.
+```
+
+* Inside Curly braces it is not necessary to put semicolons at the end of line.
+
+###### Producing a new Collection
+
+* We can generate a value to remember for each iteration .You simply prefix the body of for expression with keyword yield.
+```
 def scalaFiles =
 for {
  file <- filesHere
 If file.getName.endsWith(“.scala”)
 } yield file
-When the for expression completes, all of these values are returned in a single expression. The type of the resulting collection is based on the kind of collection processed in iteration clauses. In this case result is an arra, because filesHere is an array.
-Syntax : for clauses yield body
+```
+
+* When the for expression completes, all of these values are returned in a single expression.
+* The type of the resulting collection is based on the kind of collection processed in iteration clauses. In this case result is an array , because filesHere is an array.
+
+Syntax :
+for clauses yield body
+
 For () yield file { }
 
-Try Expressions
-We can create an exception object and can throw it with throw keyword
-throw new NullPointerException
+###### Try Expressions
 
-Catching Expressions
+* We can create an exception object and can throw it with throw keyword
+```
+throw new NullPointerException
+```
+###### Catching Expressions
+```
 try {
 doSomething()
 }
@@ -485,76 +514,318 @@ catch {
 case ex :IOException => println(“Oops !”)
 case ex: NullPointerException => println(“Oops!!”)
 }
+```
+
 Pattern matching is also shown in the above example .
-If exception is of type IOException then the first clause is executed. If of type Null Pointer Exception , the second clause will execute. If the exception is of neither type try catch will terminate and exception will propagate further.
-The finally clause :-
+
+If exception is of type IOException then the first clause is executed.
+If of type Null Pointer Exception , the second clause will execute.
+If the exception is of neither type try catch will terminate and exception will propagate further.
+
+###### The finally clause
+
 We can wrap the code with a finally clause if you want some code to execute even if a method is terminated early.
+
 Eg :-Open file gets closed even if method exit by throwing an exception.
+```
 val file =openFile()
 try {
 }
 finally {  file .close()}
+```
 
 Yielding a value
 try-catch-finally can results in value.
 
 Example  :-
+```
 val url =
 try {
 new URL(path)
 }
 catch {
 case e :MalformedURLException => new URL(“http://www.scala-lang.org”)
-If you’re familiar with Java, it’s worth noting that Scala’s behavior differs from Java only because Java’s try-finally does not result in a value. As in Java, if a finally clause includes an explicit return statement, or throws an exception, that return value or exception will “overrule” any previous one that originated in the try block or one of its catch clauses.
+```
 
+* If you’re familiar with Java, it’s worth noting that Scala’s behavior differs from Java only because Java’s try-finally does not result in a value. As in Java, if a finally clause includes an explicit return statement, or throws an exception, that return value or exception will “overrule” any previous one that originated in the try block or one of its catch clauses.
+
+```
 def f(): Int = try { return 1 } finally { return 2 }
+```
 calling f() results in 2.
 
 By contrast, given:
+```
 def g(): Int = try { 1 } finally { 2 }
+```
 calling g() results in 1.
 
-Match Expressions
-It let you select from a number of alternatives.
-Val firstArg = if(args.length > 0) args(0) else “”
-firstArg match {
-case “salt” = > println(“pepper”)
-case “chips” => println(“salsa”)
-case _ => println(“No options”)
-}
-Break is implicit . Match expression results in a value.
+##### Match Expressions
 
-FUNCTIONAL OBJECTS
-Scala puts a great emphasis on immutable objects.
+It let you select from a number of alternatives.
+```
+val firstArg = if(args.length > 0) args(0) else “”
+firstArg match {
+case “salt”  => println(“pepper”)
+case “chips” => println(“salsa”)
+case _       => println(“No options”)
+}
+```
+
+* Break is implicit . Match expression results in a value.
+
+##### FUNCTIONAL OBJECTS
+
+* Scala puts a great emphasis on immutable objects.
+
 Rational numbers do not have mutable state. We can add a constant to a rational number , but it results in a new rational number.
-In scala classes can take parameters directly. Where as in java, classes have constructors which can take parameters.
+
+In scala,  classes can take parameters directly. Where as in java, classes have constructors which can take parameters.
+
 Class parameters can be used directly in the body of class, there is no need to define fields and write assignments which copy constructor parameters to fields.
 
-Multiple Constructors
-Scala supports multiple constructors in a class using auxillary constructors.
+##### Multiple Constructors
+
+* Scala supports multiple constructors in a class using auxillary constructors.
+
 Example :-
+```
 class Rational(n :Int, d:Int) {
   def this(n :Int) = this(n,1)
 println(“created : “+n+”/”+d)
 }
-Secondary constructor in scala starts with def this(…) . In this code above, an auxillary constructor is used to create an instance of Rational with a default value of 1 for the denominator. It does this by calling the primary constructor with the given parameters n and 1 as arguments.
-scala> val y = new Rational(3) // you should see :- created : 3/1
-Every auxillary constructor must call another constructor of the same class as its first action. The called constructor is called primary constructor.
+```
 
-Reimplementing the toString method.
-When the interpreter prints out the value of a rational number, it invokes the number’s toString method. This method has a default implementation in Scla’s root class Object, where it just prints the class name and hexadecimal number. The default implementation can be overridden by adding a method toString to class Rational
+* Secondary constructor in scala starts with def this(…) .
+* In this code above, an auxillary constructor is used to create an instance of Rational with a default value of 1 for the denominator. It does this by calling the primary constructor with the given parameters n and 1 as arguments.
+
+* scala> val y = new Rational(3) // you should see :- created : 3/1
+
+* Every auxillary constructor must call another constructor of the same class as its first action. The called constructor is called primary constructor.
+
+###### Reimplementing the toString method.
+
+* When the interpreter prints out the value of a rational number, it invokes the number’s toString method. This method has a default implementation in Scala’s root class Object, where it just prints the class name and hexadecimal number. The default implementation can be overridden by adding a method toString to class Rational.
+```
 override def toString() = numer+”/”+denom
 scala> val x = new Rational(1,3)
+```
+
 x:Rational = 1/3
 
-Identifiers in Scala
-Scala has very flexible rules of forming identifiers .
-An alphanumeric identifier starts with a letter or an underscore character, which can be followed by further letters, digits and underscore characters.
-The $- character also counts as a letter , however it is reserved for identifiers generated by scala compiler. Identifiers in user programs should not contain $ character.
-An operator identifier consists of one or more operator characters.
+##### Identifiers in Scala
+
+* Scala has very flexible rules of forming identifiers .
+
+* An alphanumeric identifier starts with a letter or an underscore character, which can be followed by further letters, digits and underscore characters.
+
+* The $- character also counts as a letter , however it is reserved for identifiers generated by scala compiler. Identifiers in user programs should not contain $ character.
+
+* An operator identifier consists of one or more operator characters.
 Ex:- + , ++, :::, <?>, :->
-A mixed identifier consists of alphanumeric identifier, which is followed by an underscore and an operator identifier
+
+* A mixed identifier consists of alphanumeric identifier, which is followed by an underscore and an operator identifier
 Ex :- vector_+, success_?
-A literal identifier is an arbitrary string enclosed in back-ticks
-Example :- `x` , `yield`
+
+* A literal identifier is an arbitrary string enclosed in back-ticks.
+Example :- `x` , `yield`.
+
 Reserved words in scala can still be used as identifiers by holding the name in back-tick.
+
+
+#### FUNCTIONS AND CLOSURES
+
+##### Methods
+
+* The most common way to define a function is as a member of some object. Such a function is called a method.
+
+```
+import scala.io.source
+object LongLines {
+  def processFile(filename: String, width :Int) {
+    val source =
+    Source.fromFile(filename)
+    for(line < -source.getLines())
+    processLine(filename, width, line)
+  }
+  private def processLine(filename :String, width: Int, line :String) {
+    if(line.length > width)
+      println(filename +": " + line.trim)
+  }
+}
+```
+
+* The above method takes filename and width as parameters. It creates a source object from a filename and , in for expression, calls getLines on the source. getLine returns an iterator that return one line from the file on each iteration. The processLine method takes three parameters. It checks whether length of line is greater than given width, if so it prints the filename, a colon, and the line.
+
+* To use LongLine from command line, we will create an application that expects line width as first commandline argument and interprets subsequent arguments as filenames.
+
+```
+object FindLongLines {
+   def main(args: Array[String]) {
+     val width = args(0).toInt
+     for(arg <- args.drop(1))
+       LongLines.processFile(arg, width)
+   }
+}
+```
+
+From command LImne :-
+
+$scala FindLongLines 45 LongLines.scala.
+
+
+###### Defining Functions withoin Functions .
+
+```
+def processFile(filename: String, width :Int) {
+  def processLine(filename :String, width: Int, line :String) {
+    if(line.length > width)
+      println(filename +": " + line.trim)
+  }
+  val source = Source.fromFile(filename)
+  for(line <- source.getLines()) {
+    processLine(filename, width, line)
+  }
+}
+```
+
+Inthe above code we refactored the original longLines version by transforming private method processLine in to local functions lf processFile. Here processLine is only in scope inside processFile but inaccessible outside.
+
+```
+def processFile(filename: String, width :Int) {
+  def processLine(line :String) {
+    if(line.length > width)
+      println(filename +": " + line.trim)
+  }
+  val source = Source.fromFile(filename)
+  for(line <- source.getLines()) {
+    processLine(filename, width, line)
+  }
+}
+```
+To ensure filename and width are passed unchanged to helper functions , only line as argument is passed to helper functions and the remaining two arguments can be accessed from the enclosing function.
+
+##### First-class Functions
+
+Scala has first-class functions. Not only you can define function and call them, bu you can write down functions as unnamed literals and then pass them around as values.
+A function literal is compiled into a class that when instantiated at runtime is a function value. THus the distinction between function value and literal is that function literal exist in source code whereas function value exist as object in runtime.
+
+Example for Function literal :-
+(x: Int) => x + 1
+
+Function values are objects , so that we can store them in variables. They are functions too, so you can invoke them using the usual paranthesis function-call notation.
+
+Example :-
+
+ ```
+ scala> var increase = (x :Int) => x+1
+ increase: (Int) => Int =<function1>
+ scala >increase(10)
+ res0: Int =11
+ ```
+
+  * Function literals can be written without argument type, if compiler gets confused add in the type. A second way to remove useless characters is to leave out paranthesis around a parameter whose type is inferred.
+
+  ##### PlaceHolder Syntax
+  * To make a function literal even more concise , we can use underscores as placeholders for one or more parameters, so long as each parameter appears only onetime in function literal. Example :-
+
+  ```
+  scala> someNumber.filter(_ > 0)
+  ```
+
+  This blank will be filled in with an argument to the function each time it is invoked.
+
+  ##### Partially applied Functions
+
+  scala> def sum(a :Int ,b :Int, c:Int) = a + b + c
+  scala> sum(1, 2, 3)
+  res1 : Int =6
+
+  A partially applied function is an expression in which you don't supply all of the arguments needed by the function. Instead we supply some, or none of the arguments. To create a partially applied function expression involving sum, in which you supply none of the reqired arguments, you just place an underscore after sum.The resulting function can be stored in a variable .
+
+  scala>val a = sum _
+
+  Given this code, scala compiler instantiates a function value tht takes the three integer parameters missing from the partially applied function expression, sum _, and assign a referance of that new function to that variable a. When you apply three arguments to this new functoon value ,it will turn around and invoke sum , passing in those same three arguments.
+
+  scala> a(1, 2, 3)
+  res2 : Int :6
+  * The variable named a refers to a function value object.
+  * The function value is an instance of a class generateo automatically by the scala compiler from sum_, the partially applied function expression.
+  * The class generated by the compiler has an apply method that takes three arguments.
+  * Scala compiler translates the expression a(1,2,3) into an invocation of the function value's apply method , passing in three arguments 1,2 and 3.
+
+  * Thus a(1, 2, 3) in short form means
+
+  scala> a.apply(1,2,3)
+  res3 :Int= 6
+
+  You can express a partially applied function by supplying some but not all of the arguments.
+
+  Example :-
+
+  ```
+  scala > val b = sum(1, _: Int, 3)
+  b: (Int) => Int = <function>
+  ```
+  In this case we have supplied the last and first argument to sum , but middle argument is missing, the scala compiler generates a new function class whose apply method takes one argument,. when invoked with that one argument, the generated function's apply method invokes sum.
+
+  ##### Closures
+
+  The function value that's created at runtime from function literal is called a closure.
+  * A function literal with no free variables , such as (x: Int) => x+1 is called a closed term.
+
+  * Any function literal with free variables such as (x :Int) => x + more is an open term.
+
+  * Therefore any function value created at runtime from (x :Int) => x + more will by definition require a that a binding for its free variable , more be captured .The resulting function value which will contain the a reference to captured more variable is therefore called a  closure.
+
+  ##### Special Function Call Forms
+
+  * Scala supports repeated parameters, named arguments and default arguments.
+
+  ###### Repeated Parameters
+
+  * Scala allows us to indicate that the last parameter to a function may be repeated. This allows clients to pass variable length argument list to the function. To denote a repeated parameter, place an asterisk after the type of parameter.
+  Example :-
+
+  ```
+   scala> def echo(args:String*) =
+   for (arg <- args) println(arg)
+   echo: (args :String*)Unit
+
+   ```
+
+   Defined this way , echoncan be called with zero to many string arguments.
+
+   ```
+   scala > echo()
+   scala echo("one")
+   one
+
+   scala>echo("hello", "world!")
+
+   hello
+   world!
+```
+
+Inside the functoion, the type of repeated parameter is an Array of declared type of the parameter. Thus the type of args , inside the echo function, which is declared as type String* is actually Array[String]. NEverthless , if you have an array of appropriate type, and you attempt to pass it a repeated parameter, you will get a compile time error.
+
+scala> val arr = Array("How", "are", "you")
+scala>echo(arr) // will throw an error
+
+To accomplish this, you will need to append an array argument with a colon and an _* symnol
+
+scala> echo(arr: _*)
+how
+are
+you
+
+###### Named Arguments
+
+* It allows you to pass arguments to a function in a different order.
+* The syntax is simply that each argument is preceeded by a parameter name and an equals sign.
+
+##### Tail Recursion
+
+* Function that call themselveds as the last action is called as tail recursion.
+
+* The scala compiler detects tail recursion and repllaces it with a jump back to the begining of the function after updating the function parameters with new values.

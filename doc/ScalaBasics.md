@@ -657,7 +657,7 @@ object LongLines {
 
 * The above method takes filename and width as parameters. It creates a source object from a filename and , in for expression, calls getLines on the source. getLine returns an iterator that return one line from the file on each iteration. The processLine method takes three parameters. It checks whether length of line is greater than given width, if so it prints the filename, a colon, and the line.
 
-* To use LongLine from command line, we will create an application that expects line width as first commandline argument and interprets subsequent arguments as filenames.
+* To use LongLine from command line, we will create an application that expects line width as first command line argument and interprets subsequent arguments as filenames.
 
 ```
 object FindLongLines {
@@ -669,12 +669,12 @@ object FindLongLines {
 }
 ```
 
-From command LImne :-
+From command Line :-
 
 $scala FindLongLines 45 LongLines.scala.
 
 
-###### Defining Functions withoin Functions .
+###### Defining Functions within Functions .
 
 ```
 def processFile(filename: String, width :Int) {
@@ -689,7 +689,7 @@ def processFile(filename: String, width :Int) {
 }
 ```
 
-Inthe above code we refactored the original longLines version by transforming private method processLine in to local functions lf processFile. Here processLine is only in scope inside processFile but inaccessible outside.
+In the above code we refactored the original longLines version by transforming private method processLine in to local functions of processFile. Here processLine is only in scope inside processFile but inaccessible outside.
 
 ```
 def processFile(filename: String, width :Int) {
@@ -707,13 +707,13 @@ To ensure filename and width are passed unchanged to helper functions , only lin
 
 ##### First-class Functions
 
-Scala has first-class functions. Not only you can define function and call them, bu you can write down functions as unnamed literals and then pass them around as values.
-A function literal is compiled into a class that when instantiated at runtime is a function value. THus the distinction between function value and literal is that function literal exist in source code whereas function value exist as object in runtime.
+Scala has first-class functions. Not only you can define function and call them, but you can write down functions as unnamed literals and then pass them around as values.
+A function literal is compiled into a class that when instantiated at runtime is a function value. Thus the distinction between function value and literal is that function literal exist in source code whereas function value exist as object in runtime.
 
 Example for Function literal :-
 (x: Int) => x + 1
 
-Function values are objects , so that we can store them in variables. They are functions too, so you can invoke them using the usual paranthesis function-call notation.
+Function values are objects , so that we can store them in variables. They are functions too, so you can invoke them using the usual parenthesis function-call notation.
 
 Example :-
 
@@ -724,9 +724,10 @@ Example :-
  res0: Int =11
  ```
 
-  * Function literals can be written without argument type, if compiler gets confused add in the type. A second way to remove useless characters is to leave out paranthesis around a parameter whose type is inferred.
+  * Function literals can be written without argument type, if compiler gets confused add in the type. A second way to remove useless characters is to leave out parenthesis around a parameter whose type is inferred.
 
-  ##### PlaceHolder Syntax
+##### PlaceHolder Syntax
+
   * To make a function literal even more concise , we can use underscores as placeholders for one or more parameters, so long as each parameter appears only onetime in function literal. Example :-
 
   ```
@@ -735,22 +736,22 @@ Example :-
 
   This blank will be filled in with an argument to the function each time it is invoked.
 
-  ##### Partially applied Functions
+##### Partially applied Functions
 
   scala> def sum(a :Int ,b :Int, c:Int) = a + b + c
   scala> sum(1, 2, 3)
   res1 : Int =6
 
-  A partially applied function is an expression in which you don't supply all of the arguments needed by the function. Instead we supply some, or none of the arguments. To create a partially applied function expression involving sum, in which you supply none of the reqired arguments, you just place an underscore after sum.The resulting function can be stored in a variable .
+  A partially applied function is an expression in which you don't supply all of the arguments needed by the function. Instead we supply some, or none of the arguments. To create a partially applied function expression involving sum, in which you supply none of the required arguments, you just place an underscore after sum.The resulting function can be stored in a variable .
 
   scala>val a = sum _
 
-  Given this code, scala compiler instantiates a function value tht takes the three integer parameters missing from the partially applied function expression, sum _, and assign a referance of that new function to that variable a. When you apply three arguments to this new functoon value ,it will turn around and invoke sum , passing in those same three arguments.
+  Given this code, scala compiler instantiates a function value that takes the three integer parameters missing from the partially applied function expression, sum _, and assign a reference of that new function to that variable a. When you apply three arguments to this new function value ,it will turn around and invoke sum , passing in those same three arguments.
 
   scala> a(1, 2, 3)
   res2 : Int :6
   * The variable named a refers to a function value object.
-  * The function value is an instance of a class generateo automatically by the scala compiler from sum_, the partially applied function expression.
+  * The function value is an instance of a class generated automatically by the scala compiler from sum_, the partially applied function expression.
   * The class generated by the compiler has an apply method that takes three arguments.
   * Scala compiler translates the expression a(1,2,3) into an invocation of the function value's apply method , passing in three arguments 1,2 and 3.
 
@@ -769,7 +770,7 @@ Example :-
   ```
   In this case we have supplied the last and first argument to sum , but middle argument is missing, the scala compiler generates a new function class whose apply method takes one argument,. when invoked with that one argument, the generated function's apply method invokes sum.
 
-  ##### Closures
+##### Closures
 
   The function value that's created at runtime from function literal is called a closure.
   * A function literal with no free variables , such as (x: Int) => x+1 is called a closed term.
@@ -778,7 +779,7 @@ Example :-
 
   * Therefore any function value created at runtime from (x :Int) => x + more will by definition require a that a binding for its free variable , more be captured .The resulting function value which will contain the a reference to captured more variable is therefore called a  closure.
 
-  ##### Special Function Call Forms
+##### Special Function Call Forms
 
   * Scala supports repeated parameters, named arguments and default arguments.
 
@@ -794,25 +795,25 @@ Example :-
 
    ```
 
-   Defined this way , echoncan be called with zero to many string arguments.
+   Defined this way , echo can be called with zero to many string arguments.
 
    ```
    scala > echo()
    scala echo("one")
    one
 
-   scala>echo("hello", "world!")
+   scala > echo("hello", "world!")
 
    hello
    world!
 ```
 
-Inside the functoion, the type of repeated parameter is an Array of declared type of the parameter. Thus the type of args , inside the echo function, which is declared as type String* is actually Array[String]. NEverthless , if you have an array of appropriate type, and you attempt to pass it a repeated parameter, you will get a compile time error.
+Inside the function, the type of repeated parameter is an Array of declared type of the parameter. Thus the type of args , inside the echo function, which is declared as type String* is actually Array[String]. Neverthless , if you have an array of appropriate type, and you attempt to pass it a repeated parameter, you will get a compile time error.
 
 scala> val arr = Array("How", "are", "you")
 scala>echo(arr) // will throw an error
 
-To accomplish this, you will need to append an array argument with a colon and an _* symnol
+To accomplish this, you will need to append an array argument with a colon and an _* symbol
 
 scala> echo(arr: _*)
 how
@@ -826,6 +827,6 @@ you
 
 ##### Tail Recursion
 
-* Function that call themselveds as the last action is called as tail recursion.
+* Function that call themselves as the last action is called as tail recursion.
 
-* The scala compiler detects tail recursion and repllaces it with a jump back to the begining of the function after updating the function parameters with new values.
+* The scala compiler detects tail recursion and replaces it with a jump back to the begining of the function after updating the function parameters with new values.

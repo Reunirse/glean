@@ -61,11 +61,12 @@ break;
 }
 ```
 Whereas in Scala
+
 ```
 val nameHasUpperCase = name.exists(_.isUpper)
 ```
 
-The predicate _.isUpper is an example of function literal in scala . It describes a function that takes a character argument(represented by _ character) and tests whether its an uppercase letter.
+The predicate `_.isUpper` is an example of function literal in scala . It describes a function that takes a character argument(represented by _ character) and tests whether its an uppercase letter.
 
 Function literals in scala are light weight
 
@@ -180,22 +181,27 @@ Scala provides a more concise way to create and initialize arrays
 Scala Array is a mutable sequence of objects that all share the same type .An Array[Strings] contains only strings. Although you can’t change the length of array after it was instantiated, you can change its element values. Thus arrays are mutable objects.
 
 For immutable sequence of objects that share the same type, you can use Scala List class.
+
 ```
-val oneTwoThree = List(1, 2, 3) ```
+val oneTwoThree = List(1, 2, 3)
+```
 
 Here we create a new val named ontwoThree initialised to a List[Int]. When we call a method on a list it seem by its name to impl that list will mutate, instead creates and returns a new list.
 ```
 val one =List(1,2)
 val three =List(3,4)
-val onethree = onetwo ::: threefour ```
+val onethree = onetwo ::: threefour
+```
 
 Here List(1,2) and List(3,4) were not mutated. List(1,2,3,4) is a new list.
 :: (cons) operator prepend a new element to beginning of list.
+
 ```
 val twoThree = List(2,3)
-val onetwoThree = 1 :: twoThree ```
+val onetwoThree = 1 :: twoThree
+```
 
-*Class List does offer an append operation , it’s written :+ , but this operation is rarely used, because the time it takes to append to a list grows linearly with size of list. , whereas prepending with :: takes constant time To build a list efficiently by appending elements is yo prepend them, but when you are done call reverse; or use a ListBuffer , a mutable list that does an append operation and when you are done call toList.*
+* Class List does offer an append operation , it’s written :+ , but this operation is rarely used, because the time it takes to append to a list grows linearly with size of list. , whereas prepending with :: takes constant time To build a list efficiently by appending elements is yo prepend them, but when you are done call reverse; or use a ListBuffer , a mutable list that does an append operation and when you are done call toList.*
 
 ###### Some List methods and its uses
 
@@ -244,14 +250,16 @@ Creates a new List[String] with three values “Will”, “fill” and “until
 
 ##### Tuples
 Tuples are immutable , ut unlike list tuples a=can contain different types of elements. Used to return multiple objects from a method.
+
 ```
-val pair = (99, “Luftballons”)
+val pair = (99, “Leftballons”)
 println(pair._1)
 println(pair._2)
+
 ```
 Scala infers the type of this tuple to be Tuple2[Int, String].
 
-We cant access elements of tuple as pair(0) .The reason is that a lists apply method always return same type , but each element of tuple  may be  a different type. _1 has one result type, _2 has another result type.
+We cant access elements of tuple as pair(0) .The reason is that a lists apply method always return same type , but each element of tuple  may be  a different type. '_1' has one result type, '_2' has another result type.
 
 #####  Use sets and maps
 
